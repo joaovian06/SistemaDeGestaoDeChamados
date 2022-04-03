@@ -8,11 +8,11 @@
     .collapse.navbar-collapse#navbarNav
       %ul.navbar-nav.mr-auto
         %li.nav-item
-          = link_to t('.customers'), customers_path, class: 'nav-link text-white'
+          = link_to t('customers.index.customers'), customers_path, class: 'nav-link text-white'
         %li.nav-item
-          = link_to t('.consultants'), consultants_path, class: 'nav-link text-white'
+          = link_to t('consultants.index.consultants'), consultants_path, class: 'nav-link text-white'
         %li.nav-item
-          = link_to t('.treatments'), treatments_path, class: 'nav-link text-white'
+          = link_to t('treatments.index.treatments'), treatments_path, class: 'nav-link text-white'
       %ul.navbar-nav
         %li.nav-item
-          = render 'login_links'
+          = render 'shared/login_links'
