@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  devise_for :users
+  root 'treatments#index'
+  # devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   resources :treatments
   resources :consultants
   resources :customers

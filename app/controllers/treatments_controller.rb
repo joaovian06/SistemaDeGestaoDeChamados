@@ -1,11 +1,16 @@
 class TreatmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_treatment_by_id, only: [:edit, :show, :update, :destroy]
   before_action :redirect_index_missing_treatment, only: [:edit, :show]
 
-  PERMITTED_PARAMS= [:treatment_type, :status, :rate, :description, :budget, :customer_id, :consultant_id, :title]
+  PERMITTED_PARAMS= [:treatment_type, :status, :description, :title, :user_id]
 
   def index
-    @treatments = Treatment.all
+    # @treatments = Treatment.all
+    @treatments = Treatment.order(created_at: :desc)
+    @treatments = @treatments.where(treatment_type: filter_params) if filter_params.present?
+    # @treatments = @treatments.where('title LIKE :search OR description LIKE :search', search: "%#{search_param}%").distinct if search_param.present?
+    # @treatments = @treatments.order(created_at: :desc)
   end
 
   def new
@@ -18,6 +23,8 @@ class TreatmentsController < ApplicationController
 
   def create
     @treatment = Treatment.new(permit_params)
+    @treatment.user = current_user
+
     if @treatment.save
       redirect_to_show
       success_flash
@@ -76,4 +83,13 @@ class TreatmentsController < ApplicationController
   def permit_params
     params.require(:treatment).permit(PERMITTED_PARAMS)
   end
+
+  def search_param
+    params[:search]
+  end
+
+  def filter_params
+    params.fetch(:treatment_type, '')
+  end
+
 end

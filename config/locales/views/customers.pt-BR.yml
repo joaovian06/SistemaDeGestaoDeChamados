@@ -1,7 +1,7 @@
 pt-BR:
   customers:
     index:
-      customers: Clientes
+      customers: Estudantes
       new_customer: Novo Cliente
     show: &infos
       customer_attributes: Atributos do Cliente

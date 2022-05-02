@@ -25,14 +25,14 @@ RSpec.describe Treatment, type: :model do
   end
 
   describe 'enums' do
-    it do
+    it 'treatments types' do
       is_expected.to define_enum_for(:treatment_type)
-        .with_values([:organizational, :accounting, :procedure, :project])
+        .with_values([:password_reset, :software ])
     end
 
-    it do
+    it 'status' do
       is_expected.to define_enum_for(:status)
-        .with_values([:confirmation, :analyze, :in_progress, :pending_budget, :pending_payment])
+        .with_values([:open, :in_progress, :waiting, :done])
     end
   end
 

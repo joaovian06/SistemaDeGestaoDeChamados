@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_124742) do
+ActiveRecord::Schema.define(version: 2022_05_02_150451) do
 
-  create_table "consultants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "consultants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "cpf"
     t.integer "level"
     t.string "registration_num"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_124742) do
     t.string "name"
   end
 
-  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "cnpj"
     t.integer "status"
     t.string "agreement"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_124742) do
     t.string "corporate_name"
   end
 
-  create_table "treatments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "treatments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "treatment_type"
     t.integer "status", default: 0
     t.integer "rate"
@@ -43,11 +43,15 @@ ActiveRecord::Schema.define(version: 2020_11_02_124742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.bigint "user_id"
+    t.bigint "atendant_id_id"
+    t.index ["atendant_id_id"], name: "index_treatments_on_atendant_id_id"
     t.index ["consultant_id"], name: "index_treatments_on_consultant_id"
     t.index ["customer_id"], name: "index_treatments_on_customer_id"
+    t.index ["user_id"], name: "index_treatments_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -56,10 +60,14 @@ ActiveRecord::Schema.define(version: 2020_11_02_124742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.integer "user_type"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "treatments", "consultants"
   add_foreign_key "treatments", "customers"
+  add_foreign_key "treatments", "users"
+  add_foreign_key "treatments", "users", column: "atendant_id_id"
 end

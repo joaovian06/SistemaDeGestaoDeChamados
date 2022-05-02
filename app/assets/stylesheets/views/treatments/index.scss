@@ -1,0 +1,20 @@
+.card {
+  .card-header {
+    min-height: 100px;
+
+    h4 {
+      &.title {
+        font-weight: 900;
+      }
+    }
+  }
+
+  .card-body {
+    h5 {
+      &.treatment-attribute {
+        color: blue;
+        font-weight: 900;
+      }
+    }
+  }
+}

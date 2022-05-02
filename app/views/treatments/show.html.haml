@@ -1,5 +1,5 @@
-.row.py-5
-  .col
+.row.py-5.justify-content-center
+  .col-8
     .container-fluid.text-left
       .card
         .card-header
@@ -30,14 +30,19 @@
                   .row.p-2.m-0.border-bottom
                     .col= Treatment.human_attribute_name(:treatment_type)
                     .col= Treatment.human_attribute_name("treatment_type.#{@treatment.treatment_type}")
-                %tr
-                  .row.p-2.m-0.border-bottom
-                    .col= Treatment.human_attribute_name(:budget)
-                    .col= "#{t('number.currency.format.unit')} #{@treatment.budget}"
-                %tr
-                  .row.p-2.m-0
-                    .col= Treatment.human_attribute_name(:consultant)
-                    .col= link_to @treatment.consultant.name, consultant_path(@treatment.consultant), class: 'text-dark'
+                -# %tr
+                -#   .row.p-2.m-0.border-bottom
+                -#     .col= Treatment.human_attribute_name(:budget)
+                -#     .col= "#{t('number.currency.format.unit')} #{@treatment.budget}"
+                -# %tr
+                -#   .row.p-2.m-0
+                -#     .col= Treatment.human_attribute_name(:consultant)
+                -#     .col= link_to @treatment.consultant.name, consultant_path(@treatment.consultant), class: 'text-dark'
+
+                -# %tr
+                -#   .row.p-2.m-0
+                -#     .col= Treatment.human_attribute_name(:customer)
+                -#     .col= link_to @treatment.customer.corporate_name, customer_path(@treatment.customer), class: 'text-dark'
             #treatment-description.container-fluid.border.rounded.p-2.mx-0
               .h3= Treatment.human_attribute_name(:description)
               = sanitize @treatment.description, tags: %w(div textarea)

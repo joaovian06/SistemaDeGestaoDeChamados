@@ -12,13 +12,10 @@ pt-BR:
         customer: Cliente
         treatment_type: Tipo do chamado
       treatment/status:
-        confirmation: Aguardando confirmação
-        analyze: Em análise
+        open: Aberto
         in_progress: Em andamento
-        pending_budget: Aguardando Orçamento
-        pending_payment: Aguardando pagamento
+        waiting: Em espera
+        done: Fechado
       treatment/treatment_type:
-        organizational: Organizacional
-        accounting: Contábil
-        procedure: Processos
-        project: Projetos
+        password_reset: Redefinição de senha
+        software: Instalação de software

@@ -2,7 +2,8 @@ pt-BR:
   treatments:
     index:
       treatments: Chamados
-      new_treatment: Novo Chamado
+      my_treatments: Meus Chamados
+      new_treatment: Criar Chamado
       treatment_number: N. Chamado
       title: Título
       responsable: Responsável
