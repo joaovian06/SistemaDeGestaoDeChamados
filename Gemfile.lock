@@ -159,11 +159,8 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
     mimemagic (0.3.10)
-<<<<<<< HEAD
-=======
       nokogiri (~> 1)
       rake
->>>>>>> users_crud
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
