@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    models:
+      treatment: Chamado
+    attributes:
+      treatment:
+        rate: Avaliação
+        description: Descrição
+        budget: Orçamento
+        title: Título
+        consultant: Consultor
+        customer: Cliente
+        treatment_type: Tipo do chamado
+      treatment/status:
+        open: Aberto
+        in_progress: Em andamento
+        waiting: Em espera
+        done: Fechado
+      treatment/treatment_type:
+        password_reset: Redefinição de senha
+        software: Instalação de software

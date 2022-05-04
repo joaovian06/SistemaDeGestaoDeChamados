@@ -1,0 +1,5 @@
+= simple_form_for :search, method: :get, url: treatments_url do |f|
+  = f.input :status, label: t('treatment.status'), collection: treatment_statuses_for_select, required: false, include_blank: true, selected: params[:status]
+  = f.input :treatment_type, label: Treatment.human_attribute_name("treatment_type"), collection: treatment_types_for_select, required: false, include_blank: 'Selecionar', selected: params[:treatment_type]
+  = f.input :search, label: 'Pesquisa', required: false, value: params[:search]
+  = f.submit "Buscar", class: 'btn btn-primary btn-lg'

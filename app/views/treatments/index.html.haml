@@ -1,0 +1,33 @@
+= stylesheet_link_tag('views/treatments/index')
+
+.container-fluid
+  .row.my-4.justify-content-center
+    .col
+      - if current_user.consultant?
+        %h1
+          = t('.treatments')
+      - else
+        %h1
+          = t('.my_treatments')
+
+  .row.my-4.justify-content-center
+    .col-12
+      %button.btn.btn-primary.btn-lg
+        = link_to t('.new_treatment'), new_treatment_path, class: 'text-white'
+
+      %hr
+
+  .row
+    .offset-4.col-4
+      %h2= 'Filtros'
+      = render 'filters'
+  
+  %hr
+
+  - if @treatments.present?
+    = render 'treatments'
+  
+  - else
+    %h2
+      %strong
+        = 'Sem Chamados'

@@ -1,0 +1,10 @@
+.row.justify-content-center
+  - if flash[:success]
+    .col-8
+      .alert.alert-success.m-4.text-center
+        = flash[:success]
+
+  - if flash[:error]
+    .col-8
+      .alert.alert-danger.m-4.text-center
+        = flash[:error]
