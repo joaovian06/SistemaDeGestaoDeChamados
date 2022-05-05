@@ -57,3 +57,5 @@ production:
   host: '137.184.179.21'
   username: deploy
   password: Capotraste1*
+  socket: /tmp/mysql.sock
+
