@@ -1,4 +1,4 @@
-server 'ec2-54-172-165-10.compute-1.amazonaws.com', user: 'deploy', roles: %w{app db web}
+server '137.184.179.21', user: 'deploy', roles: %w{app db web}
 
 
 # server-based syntax

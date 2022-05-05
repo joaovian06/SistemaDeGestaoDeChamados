@@ -6,9 +6,13 @@ class TreatmentsController < ApplicationController
   PERMITTED_PARAMS= [:treatment_type, :status, :description, :title, :user_id]
 
   def index
+    @treatments = Treatment.where.not(status: 'done')
+    @treatments = @treatments.order(created_at: :desc)
+    
+    @treatments = Treatment.where(user: current_user) if current_user.student?
+
     # @treatments = Treatment.all
-    @treatments = Treatment.order(created_at: :desc)
-    @treatments = @treatments.where(treatment_type: filter_params) if filter_params.present?
+    # @treatments = @treatments.where(treatment_type: filter_params) if filter_params.present?
     # @treatments = @treatments.where('title LIKE :search OR description LIKE :search', search: "%#{search_param}%").distinct if search_param.present?
     # @treatments = @treatments.order(created_at: :desc)
   end

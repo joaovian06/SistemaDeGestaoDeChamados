@@ -1,20 +1,20 @@
 .row.justify-content-center
   - @treatments.each do |treatment|
     .col-3.my-4
-      .card
+      .card{ class: "#{treatment.status}" }
         .card-header.align-middle
           %h4.title
             = link_to treatment.title, treatment_path(treatment)
         .card-body
           .status
-            = t('.status')
+            = 'Status'
             %h5.treatment-attribute
               = Treatment.human_attribute_name("status.#{treatment.status}")
           .type
-            = t('.type')
+            = 'Tipo'
             %h5.treatment-attribute
               = Treatment.human_attribute_name("treatment_type.#{treatment.treatment_type}")
           .created_at
-            = t('.created_at')
+            = 'Criado em'
             %h5.treatment-attribute
               = treatment.created_at.strftime("%d/%m/%Y")
