@@ -54,8 +54,7 @@ production:
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: chamadosfatec
-  host: '137.184.179.21'
+  host: 137.184.179.21
   username: deploy
   password: Capotraste1*
   socket: /tmp/mysql.sock
-
