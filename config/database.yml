@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: mindset_consultoria_production
-  host: ip-172-31-29-114.ec2.internal
-  username: mindset_consultoria
-  password: <%= ENV['MINDSET_CONSULTORIA_DATABASE_PASSWORD'] %>
+  database: chamadosfatec
+  host: '137.184.179.21'
+  username: root
+  password: <%= ENV['CHAMADOSFATEC_PASSWORD'] %>
