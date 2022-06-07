@@ -19,3 +19,8 @@ pt-BR:
       treatment/treatment_type:
         password_reset: Redefinição de senha
         software: Instalação de software
+        hardware_replacement: Reposição de Hardware
+        hardware_setup: Instalação de hardware
+        misconnection: Sem acesso á rede
+        user_setup: Criação de usuário
+        user_remove: Remoção de usuário 
